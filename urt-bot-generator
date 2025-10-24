@@ -1,0 +1,58 @@
+#!/bin/bash
+how_many_bots=4
+path_to_file="q3ut4/"
+bot_file_name="bots.cfg"
+
+actual_num_bot=1
+bot_team="Blue"
+print=""
+
+bot_type=("Boa"	"Cheetah" "Chicken" "Cobra"	"Cockroach"	"Cougar" "Goose" "Mantis"
+	"Penguin"
+	"Puma"
+	"Python"
+	"Raven"
+	"Scarab"
+	"Scorpion"
+	"Tiger"
+	"Widow"
+)
+bot_name=(
+	"SolidSnake" "LiquidSnake" "MasterMiller" "Meryl" "Otacon" "Naomi" "MeiLing" "GrayFox" "Ocelot" " PsychoMantis" "VulcanRaven" "Nastasha" #MGS
+	"Ryu" "Ken" "Honda" "Chun-li" "Blanka" "Zangief" "Guile" "Dhalsim" "THawk" "Cammy" "Feilong" "Deejay" "Balrog" "Vega" "Sagat" "Bison"	#SF2
+	"EchoWolf" "PixelFang" "ZeroNova" "KarmaShot" "RogueLynx" "BulletVibe" "TwitchBlade" "IronMoth" "NeonCrow" "SpectraFox" #Smooth
+	"PewPewPotato" "SirCampALot" "NoScopeNana" "BoomBoomBob" "Lagzilla" "SneakySausage" "BananaSniper" "MissClickMike" "ChickenChaser" "AFKMaster9000" #Funny
+	"Leonidas" "Hannibal" "Caesar" "Spartacus" "Alexander" "Xerxes" "Ramses" "Pyrrhus" "Scipio" "Cincinnatus" "Cleopatra IX" #Historic
+)
+
+clear
+echo -e "generating bots.."
+sleep 1
+
+while [ $actual_num_bot -le $how_many_bots ]
+do
+	bot_type_lenght=${#bot_type[@]} #number of bot types
+	bot_name_lenght=${#bot_name[@]} #number of bot names
+	random_type=$((RANDOM%$bot_type_lenght)) #get random index for type
+	random_name=$((RANDOM%$bot_name_lenght)) #get random index for name
+	random_lvl=$((3+RANDOM%3)) #get random bot level
+	bot="addbot "${bot_type[$random_type]}" "$random_lvl" "$bot_team" 50 "${bot_name[$random_name]}
+	echo "addbot "${bot_type[$random_type]}" "$random_lvl" "$bot_team" 50 "${bot_name[$random_name]}
+	((actual_num_bot++))
+	
+	print=$print"$bot\n"
+	
+	unset "bot_name[$random_name]" #remove the name so as not to repeat it
+	bot_name=("${bot_name[@]}") #indexing array againg
+	
+	#put on alternative teams, Red and Blue
+	if [ "$bot_team" == "Blue" ]
+		then
+			bot_team="Red"
+		else
+			bot_team="Blue"
+	fi
+	sleep .5 #wait .5sec
+done
+
+echo -e "reload\n"$print > "$pathtofile$bot_file_name" #print on a file
