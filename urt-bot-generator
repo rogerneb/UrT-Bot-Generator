@@ -55,4 +55,4 @@ do
 	sleep .5 #wait .5sec
 done
 
-echo -e "reload\n"$print > "$pathtofile$bot_file_name" #print on a file
+echo -e "reload\n"$print > "$path_to_file$bot_file_name" #print on a file
