@@ -1,6 +1,6 @@
 #!/bin/bash
 ##### EDIT THIS IF YOU WANT #####
-how_many_bots=100 #cant be greather than bot names array lenght
+how_many_bots=7 #cant be greather than bot names array lenght
 path_to_file="" #Write here de path where you want the file to be generated. In UrT, by default, bot.cfg file must be in q3ut4/ Don't forguet the /
 bot_file_name="bot.cfg" #Bot file name.
 bot_name=( #available names for bots
