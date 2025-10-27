@@ -1,6 +1,6 @@
 #!/bin/bash
 ##### EDIT THIS IF YOU WANT #####
-how_many_bots=5 #cant be greather than bot names array lenght
+how_many_bots=100 #cant be greather than bot names array lenght
 path_to_file="" #Write here de path where you want the file to be generated. In UrT, by default, bot.cfg file must be in q3ut4/ Don't forguet the /
 bot_file_name="bot.cfg" #Bot file name.
 bot_name=( #available names for bots
@@ -10,6 +10,9 @@ bot_name=( #available names for bots
 	"PewPewPotato" "SirCampALot" "NoScopeNana" "BoomBoomBob" "Lagzilla" "SneakySausage" "BananaSniper" "MissClickMike" "ChickenChaser" "AFKMaster9000" #Funny
 	"Leonidas" "Hannibal" "Caesar" "Spartacus" "Alexander" "Xerxes" "Ramses" "Pyrrhus" "Scipio" "Cincinnatus" "Cleopatra_VII" #Historic
 	"Squall" "Kefka" "Quistis" "Cloud" "Terra" "Bartz" "Lightning" "Yuna" "Cecil" "Firion" "Sephirot" "Tidus" #Final Fantasy
+	"Kazuya" "Heihachi" "Jin" "Hwoarang" "Paul" "King" "Nina" "Anna" "Lei" "Yoshimitsu" #Tekken
+	"Jace" "Chandra" "Liliana" "Gideon" "Nissa" "Teferi" "Karn" "Sorin" "Ajani" "Elspeth" #mtg
+	"Geralt" "LaraCroft" "Neo" "Ripley" "Kratos" "Mario" "Zelda" "JohnWick" "Doomguy" "Samus" "Luigi"#popgames	
 )
 #################################
 
