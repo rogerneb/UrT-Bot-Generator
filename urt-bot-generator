@@ -1,41 +1,46 @@
 #!/bin/bash
-how_many_bots=4
-path_to_file="q3ut4/"
-bot_file_name="bots.cfg"
-
-actual_num_bot=1
-bot_team="Blue"
-print=""
-
-bot_type=("Boa"	"Cheetah" "Chicken" "Cobra"	"Cockroach"	"Cougar" "Goose" "Mantis"
-	"Penguin"
-	"Puma"
-	"Python"
-	"Raven"
-	"Scarab"
-	"Scorpion"
-	"Tiger"
-	"Widow"
-)
-bot_name=(
+##### EDIT THIS IF YOU WANT #####
+how_many_bots=5 #cant be greather than bot names array lenght
+path_to_file="" #Write here de path where you want the file to be generated. In UrT, by default, bot.cfg file must be in q3ut4/ Don't forguet the /
+bot_file_name="bot.cfg" #Bot file name.
+bot_name=( #available names for bots
 	"SolidSnake" "LiquidSnake" "MasterMiller" "Meryl" "Otacon" "Naomi" "MeiLing" "GrayFox" "Ocelot" " PsychoMantis" "VulcanRaven" "Nastasha" #MGS
 	"Ryu" "Ken" "Honda" "Chun-li" "Blanka" "Zangief" "Guile" "Dhalsim" "THawk" "Cammy" "Feilong" "Deejay" "Balrog" "Vega" "Sagat" "Bison"	#SF2
 	"EchoWolf" "PixelFang" "ZeroNova" "KarmaShot" "RogueLynx" "BulletVibe" "TwitchBlade" "IronMoth" "NeonCrow" "SpectraFox" #Smooth
 	"PewPewPotato" "SirCampALot" "NoScopeNana" "BoomBoomBob" "Lagzilla" "SneakySausage" "BananaSniper" "MissClickMike" "ChickenChaser" "AFKMaster9000" #Funny
-	"Leonidas" "Hannibal" "Caesar" "Spartacus" "Alexander" "Xerxes" "Ramses" "Pyrrhus" "Scipio" "Cincinnatus" "Cleopatra IX" #Historic
+	"Leonidas" "Hannibal" "Caesar" "Spartacus" "Alexander" "Xerxes" "Ramses" "Pyrrhus" "Scipio" "Cincinnatus" "Cleopatra_VII" #Historic
+	"Squall" "Kefka" "Quistis" "Cloud" "Terra" "Bartz" "Lightning" "Yuna" "Cecil" "Firion" "Sephirot" "Tidus" #Final Fantasy
 )
+#################################
+
+bot_type=("Boa"	"Cheetah" "Chicken" "Cobra"	"Cockroach"	"Cougar" "Goose" "Mantis" "Penguin"	"Puma" "Python" "Raven"	"Scarab" "Scorpion"	"Tiger"	"Widow")
+actual_num_bot=1
+bot_team="Blue"
+print=""
+
 
 clear
 echo -e "generating bots.."
 sleep 1
 
+#can't be greather than bot names
+bot_name_lenght=${#bot_name[@]} #number of bot names
+if [ "$how_many_bots" -gt "$bot_name_lenght" ]
+	then
+	how_many_bots="$bot_name_lenght"
+	echo "WARNING: The number of bots to be generated exceeds the number of names available"
+	echo "WARNING: Generating "$how_many_bots" bots"
+	sleep 2
+fi
+
+#Let's go!!!
 while [ $actual_num_bot -le $how_many_bots ]
 do
 	bot_type_lenght=${#bot_type[@]} #number of bot types
 	bot_name_lenght=${#bot_name[@]} #number of bot names
 	random_type=$((RANDOM%$bot_type_lenght)) #get random index for type
 	random_name=$((RANDOM%$bot_name_lenght)) #get random index for name
-	random_lvl=$((3+RANDOM%3)) #get random bot level
+	random_lvl=$((3+RANDOM%3)) #get random bot level between 3-5
 	bot="addbot "${bot_type[$random_type]}" "$random_lvl" "$bot_team" 50 "${bot_name[$random_name]}
 	echo "addbot "${bot_type[$random_type]}" "$random_lvl" "$bot_team" 50 "${bot_name[$random_name]}
 	((actual_num_bot++))
@@ -56,3 +61,5 @@ do
 done
 
 echo -e "reload\n"$print > "$path_to_file$bot_file_name" #print on a file
+
+#If you want, put below your Urt Server start script
