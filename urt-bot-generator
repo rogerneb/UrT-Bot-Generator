@@ -12,7 +12,7 @@ bot_name=( #available names for bots
 	"Squall" "Kefka" "Quistis" "Cloud" "Terra" "Bartz" "Lightning" "Yuna" "Cecil" "Firion" "Sephirot" "Tidus" #Final Fantasy
 	"Kazuya" "Heihachi" "Jin" "Hwoarang" "Paul" "King" "Nina" "Anna" "Lei" "Yoshimitsu" #Tekken
 	"Jace" "Chandra" "Liliana" "Gideon" "Nissa" "Teferi" "Karn" "Sorin" "Ajani" "Elspeth" #mtg
-	"Geralt" "LaraCroft" "Neo" "Ripley" "Kratos" "Mario" "Zelda" "JohnWick" "Doomguy" "Samus" "Luigi"#popgames	
+	"Geralt" "LaraCroft" "Neo" "Ripley" "Kratos" "Mario" "Zelda" "JohnWick" "Doomguy" "Samus" "Luigi" #pop culture names	
 )
 #################################
 
